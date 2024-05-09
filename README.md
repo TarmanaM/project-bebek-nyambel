@@ -1,8 +1,8 @@
 
 <div class="logo-container">
-  <img src="Documentation Project Manage/images/Gunadarma Logo - Copy.jpg" alt="Logo Gunadarma">
+  <img src="Documentation Project Manage/images/Gunadarma Logo - Copy.jpg" width=100px alt="Logo Gunadarma">
   <div class="overlay"></div>
-  <img src="Documentation Project Manage/images/logoBebekNyambel.png" alt="Logo 2">
+  <img src="Documentation Project Manage/images/logoBebekNyambel.png"  width=100px alt="Logo 2">
 </div>
 
 # Nama Proyek
@@ -26,7 +26,7 @@ Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam p
 <table>
   <thead>
     <tr>
-      <th>Foto Profil</th>
+      <th></th>
       <th>Nama</th>
       <th>Posisi</th>
       <th>Email</th>
@@ -34,33 +34,33 @@ Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam p
   </thead>
   <tbody>
     <tr>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td>Isa Tarmana Mustopa</td>
       <td>Project Manager</td>
-      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td>isatarmanamustopa54@gmail.com</td>
     </tr>
     <tr>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td>Muhammad Dhiyaul haq</td>
       <td>Head Programmer</td>
-      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td></td>
     </tr>
     <tr>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td>Rafie Ulwan Zahrani </td>
       <td>Front-end Dev</td>
-      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td></td>
     </tr>
     <tr>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td>Anugerah Cahaya Utama</td>
       <td>Back-end Dev</td>
-      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td></td>
     </tr>
     <tr>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td>Jesyca Michel</td>
       <td>Documenter & System Analyst</td>
-      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
       <td></td>
     </tr>
   </tbody>
