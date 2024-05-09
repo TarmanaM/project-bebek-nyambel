@@ -1,5 +1,5 @@
 
-<div class="logo-container">
+<div align="center" class="logo-container">
 	<table border=0>
 		<tr>
   <img src="Documentation Project Manage/images/Gunadarma Logo - Copy.jpg" width=100px alt="Logo Gunadarma">
