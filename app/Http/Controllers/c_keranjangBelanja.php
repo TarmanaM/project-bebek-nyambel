@@ -14,9 +14,10 @@ class c_keranjangBelanja extends Controller
         $this->m_keranjangBelanja=new m_keranjangBelanja();
     }
     public function index(){
+        $idUser=Auth()->user()->id;
         if (isset($_GET['checkOut'])) {
             $dataCollect=[
-                'allKeranjangBelanja'=>$this->m_keranjangBelanja->allKeranjangBelanja(),
+                'allKeranjangBelanja'=>$this->m_keranjangBelanja->allKeranjangBelanja($idUser),
             ];
             return view ('checkOut',$dataCollect);
         }
@@ -36,13 +37,15 @@ class c_keranjangBelanja extends Controller
                 $pesan="-";
             }
             $dataCollect=[
-                'allKeranjangBelanja'=>$this->m_keranjangBelanja->allKeranjangBelanja(),
+                'allKeranjangBelanja'=>$this->m_keranjangBelanja->allKeranjangBelanja($idUser),
                 'tampilPesan'=>$pesan,
             ];
             return view('keranjangBelanja',$dataCollect);
         }
     }
     public function simpanKeranjang(Request $request){
+        $idUser=Auth()->user()->id;
+
         Request()->validate([
             'pengiriman' => 'required',
             'alamatLengkap' => 'required',
@@ -66,13 +69,12 @@ class c_keranjangBelanja extends Controller
 
         date_default_timezone_set("Asia/Jakarta");
         $rand=rand(100,500);
-        $idUser="1";
         $tgfor=date("myhi");
         $noInvoice="INV-$rand$tgfor$idUser";
 
         $now=date("Y-m-d H:i:s");
 
-        $cekJumlahKeranjang=$this->m_keranjangBelanja->cekJumlahKeranjang();
+        $cekJumlahKeranjang=$this->m_keranjangBelanja->cekJumlahKeranjang($idUser);
         $noOr="";
         for($i=1;$i<=$cekJumlahKeranjang;$i++)
         {
@@ -94,7 +96,7 @@ class c_keranjangBelanja extends Controller
             $updateKeranjang=[
                 'status_pembelian'=>'Lama',
             ];
-            $this->m_keranjangBelanja->prosUpdateKeranjang($updateKeranjang,$noOrder);
+            $this->m_keranjangBelanja->prosUpdateKeranjang($updateKeranjang,$noOrder,$idUser);
         }
 
         $prosesPembayaran=[
@@ -115,6 +117,7 @@ class c_keranjangBelanja extends Controller
         {
             $prosesPengantaran=[
                 'no_invoice'=>$noInvoice,
+                'alamat_pengantaran'=>Request()->alamatLengkap,
                 'nama_driver'=>NULL,
                 'no_hp_driver'=>NULL,
                 'tggl_pengiriman'=>NULL,

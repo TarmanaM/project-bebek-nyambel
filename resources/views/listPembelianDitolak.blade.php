@@ -5,7 +5,7 @@
 @endphp
 
 @section('title')
-    List Pengantaran
+    List Pembelian Ditolak
 @endsection
 
 @section('content')
@@ -16,12 +16,21 @@
             <div class="panel panel-visible">
                 <div class="panel-heading">
                     <div class="panel-title hidden-xs">
-                        <span class="glyphicon glyphicon-tasks"></span>List Pengantaran Baru</div>
+                        <span class="glyphicon glyphicon-tasks"></span>List Pembelian Ditolak |
+                        <a href="/listPembelian"><i class="fa fa-backward"></i> Semua List</a>
+                     </div>
                 </div>
                 <div class="panel-body pn">
-                    <a href="/listPengantaran/pengantaranSudahDiproses">
+                    <a href="/listPembelian/pembelianDikonfirmasi">
                         <button class="btn btn-default" style="margin-left: 10px; margin-top:10px; margin-bottom:10px" > <i class="fa fa-check"></i>
-                            PENGANTARAN SUDAH DIPROSES
+                            PEMBELIAN
+                            DIKONFIRMASI
+                        </button>
+                    </a>
+                    <a href="/listPembelian/pembelianDitolak">
+                        <button class="btn btn-default" style="margin-left: 10px; margin-top:10px; margin-bottom:10px" > <i class="fa fa-ban"></i>
+                            PEMBELIAN
+                            DITOLAK
                         </button>
                     </a>
                     <table class="table table-striped table-bordered table-hover" id="datatable2" cellspacing="0" width="100%">
@@ -32,46 +41,36 @@
                                 <th>Data Produk</th>
                                 <th>Pengiriman</th>
                                 <th>Pembayaran</th>
-                                <th>Info Driver</th>
-                                <th>Tindakan</th>
-
+                                <th>Konfirmasi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($ambilPengantaran as $fnambilPengantaran )
+                            @foreach ($ambilPembelianDitolak as $fnambilPembelian )
                                 <tr>
-                                    <td style="vertical-align: top">{{$fnambilPengantaran->name}} <br />{{$fnambilPengantaran->email}} <br /> {{$fnambilPengantaran->phone}}</td>
-                                    <td style="vertical-align: top">{{$fnambilPengantaran->no_invoice}}</td>
+                                    <td style="vertical-align: top">{{$fnambilPembelian->name}} <br />{{$fnambilPembelian->email}} <br /> {{$fnambilPembelian->phone}}</td>
+                                    <td style="vertical-align: top">{{$fnambilPembelian->no_invoice}}</td>
                                     <td style="vertical-align: top">
-                                        @foreach (explode(',', $fnambilPengantaran->nama_barang_quantity) as $barang_quantity)
+                                        @foreach (explode(',', $fnambilPembelian->nama_barang_quantity) as $barang_quantity)
                                             {{$barang_quantity}} Pcs<br>
                                         @endforeach</td>
                                     <td style="vertical-align: top">
-                                        Pesanan: {{$fnambilPengantaran->status_pengantaran}}
-                                        @if (!empty ($fnambilPengantaran->alamat_pengantaran))
+                                        Pesanan: {{$fnambilPembelian->status_pengantaran}}
+                                        @if (!empty ($fnambilPembelian->alamat_pengantaran))
                                             <br />
-                                            {{$fnambilPengantaran->alamat_pengantaran}}
+                                            {{$fnambilPembelian->alamat_pengantaran}}
                                         @endif</td>
                                     <td style="vertical-align: top">Grand Total:
-                                        Rp. {{$fnambilPengantaran->grand_total}}
+                                        Rp. {{$fnambilPembelian->grand_total}}
                                         <br />
-                                        Metode : {{$fnambilPengantaran->metode_pembayaran}}<br />
-                                        {!! $fnambilPengantaran->keteranganTransfer !!} <br />
-                                        <i class="fa fa-search"></i> <a href="{{asset('img/'.$fnambilPengantaran->gambar_transfer)}}">Bukti Transfer</a>
-                                        <p>
-                                            <br />Status Konfirmasi: {{ $fnambilPengantaran->status_konfirmsi}}
-                                        </p>
+                                        Metode : {{$fnambilPembelian->metode_pembayaran}}<br />
+                                        {!! $fnambilPembelian->keteranganTransfer !!} <br />
+                                        <i class="fa fa-search"></i> <a href="{{asset('img/'.$fnambilPembelian->gambar_transfer)}}">Bukti Transfer</a>
                                     </td>
                                     <td style="vertical-align: top">
-                                        @if (empty($fnambilPengantaran->nama_driver) && empty($fnambilPengantaran->no_hp_driver))
-                                            Driver belum ditentukan
-                                        @endif
+                                        PEMBELIAN DI{{strtoupper($fnambilPembelian->status_konfirmsi)}} <br />
+                                        {{ date('d-M-Y H:i:s', strtotime($fnambilPembelian->tggl_konfirmasi))}}
                                     </td>
-                                    <td style="vertical-align: top">
-                                        <a href="/listPengantaran?konfirmasi={{crypt::encryptString ($fnambilPengantaran->id_pengantaran)}}" >
-                                            <button class="btn btn-info">Konfirmasi</button>
-                                        </a>
-                                    </td>
+
                                 </tr>
                             @endforeach
                         </tbody>

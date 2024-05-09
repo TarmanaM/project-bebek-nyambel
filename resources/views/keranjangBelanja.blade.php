@@ -2,12 +2,13 @@
 
 @php
     use Illuminate\Support\Facades\Crypt;
-    $conn=mysqli_connect("localhost","root","","db_bebek");
+    $local=env('DB_HOST').":".env('DB_PORT');
+    $conn=mysqli_connect($local,env('DB_USERNAME'),env('DB_PASSWORD'),env('DB_DATABASE'));
 @endphp
 
 
 @section('title')
-    kontak
+    Keranjang Belanja
 @endsection
 
 @section('content')
@@ -68,9 +69,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
                                             @endphp
                                             @foreach ($allKeranjangBelanja as  $fnallKeranjangBelanja)
                                                 @php
+                                                    $idUser= Auth()->user()->id;
                                                     $idProduk=$fnallKeranjangBelanja->id_produk;
 
-                                                    $ambilData=mysqli_fetch_row(mysqli_query($conn,"Select sum(quantity) as quantity from tb_keranjang where id_produk='$idProduk' and status_pembelian='Baru'"));
+                                                    $ambilData=mysqli_fetch_row(mysqli_query($conn,"Select sum(quantity) as quantity from tb_keranjang where id_produk='$idProduk' and status_pembelian='Baru' and id_user='$idUser'" ));
                                                     $sumQuantity=$ambilData[0];
 
                                                     $total=$sumQuantity*$fnallKeranjangBelanja->harga_produk;

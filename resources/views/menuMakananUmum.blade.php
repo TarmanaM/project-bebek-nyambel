@@ -1,22 +1,40 @@
 @extends('userThame.mainUser')
 
 @section('title')
-    kontak
+    Menu
 @endsection
 
 @section('content')
 <div class="container contactpage">
     <div class="two_third newsarticles">
-      <div id="contactForm">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5204062365638!2d106.82037647499124!3d-6.326539393662987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ed8cc8ab57cb%3A0xb8e05a64951962af!2sRumah%20Pohon%20Jagakarsa!5e0!3m2!1sid!2sid!4v1697517706801!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <form action="process.php" method="post" id="contact_form" />
-          <div class="name">
-            <label for="name">Alamat Bebek Nyambel</label>
-            <p> Jl. Jagakarsa no. 4</p>
-          </div>
-        </form>
-      </div>
-      <!-- end contactForm -->
+        <section class="cbp-so-section">
+            <article class="cbp-so-side cbp-so-side-right">
+            <div class="title">
+                <h2 class="center">Menu Bebek Nyambel</h2>
+                <h4>Pilih Menu Makanan dan Minuman Kesukaan Anda</h4>
+            </div>
+            <div class="main">
+                <div class="card-group">
+                    @foreach ($allProduk as $fnallProduk)
+                        <div class="card">
+                            <img src="{{asset('img/'.$fnallProduk->foto_produk)}}" class="card-img-top" alt="..." style="height: 280px">
+                            <div class="card-body">
+                            <h5 class="card-title">Rp. {{number_format($fnallProduk->harga_produk,0)}} /Porsi</h5>
+                            <p class="card-text">{{$fnallProduk->nama_barang}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">
+                                    <a href="/masuk">
+                                        <button class="btn btn-danger">Harap Login</button>
+                                    </a>
+                                </small>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            </article>
+        </section>
     </div>
     <aside>
       <div class="one_third lastcolumn newssidebar">
@@ -25,6 +43,7 @@
             <h3>Selamat Datang di Bebek Nyambel</h3>
             <h4>Buka Setiap Hari <br />
               14.00-22.00</h4>
+
           </div>
           <img src="user/images/product6.jpg" alt="img01" />
           <div class="home-event-one">

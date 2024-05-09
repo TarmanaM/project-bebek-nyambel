@@ -262,6 +262,17 @@
                 @enderror
               </div>
               <div class="input-box">
+                <i class="fas fa-phone"></i>
+                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="Ketikkan Nomor Hp Anda">
+
+                @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+              </div>
+
+              <div class="input-box">
                 <i class="fas fa-eye"></i>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Ketikan Password Anda">
 

@@ -16,7 +16,7 @@
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"> <img src="assets/img/avatars/5.jpg" alt="avatar" class="mw30 br64 mr15">
-                <span>John.Smith</span>
+                <span>{{Auth()->user()->name}}</span>
                 <span class="caret caret-tp"></span>
             </a>
             <ul class="dropdown-menu dropdown-persist pn w250 bg-white" role="menu">
@@ -69,13 +69,13 @@
             </li>
             <li class="sidebar-label pt15">Data Pembelian</li>
             <li>
-                <a class="accordion-toggle {{Request()->is('listPembelian') ? 'menu-open':''}}" href="#">
+                <a class="accordion-toggle {{Request()->is('listPembelian', 'konfirmasiPembelian','listPembelian/pembelianDikonfirmasi', 'listPembelian/pembelianDitolak') ? 'menu-open':''}}" href="#">
                     <span class="glyphicons glyphicons-book"></span>
                     <span class="sidebar-title">Pembelian</span>
                     <span class="caret"></span>
                 </a>
                 <ul class="nav sub-nav">
-                    <li class="{{Request()->is('listPembelian') ? 'active':''}}">
+                    <li class="{{Request()->is('listPembelian', 'konfirmasiPembelian', 'listPembelian/pembelianDikonfirmasi', 'listPembelian/pembelianDitolak') ? 'active':''}}">
                         <a href="/listPembelian">
                             <span class="glyphicon glyphicon-indent-right"></span> List Pembelian</a>
                     </li>
@@ -83,17 +83,17 @@
             </li>
             <li class="sidebar-label pt15">Data Pengantaran</li>
             <li>
-                <a class="accordion-toggle {{Request()->is('tambahPengantaran', 'listPengantaran') ? 'menu-open':''}}" href="#">
+                <a class="accordion-toggle {{Request()->is('tambahPengantaran', 'listPengantaran', 'konfirmasiPengantaran', 'listPengantaran/pengantaranSudahDiproses') ? 'menu-open':''}}" href="#">
                     <span class="glyphicon glyphicon-send"></span>
                     <span class="sidebar-title">Pengantaran</span>
                     <span class="caret"></span>
                 </a>
                 <ul class="nav sub-nav">
-                    <li class="{{Request()->is('tambahPengantaran') ? 'active':''}}">
+                    {{-- <li class="{{Request()->is('tambahPengantaran') ? 'active':''}}">
                         <a href="/tambahPengantaran">
                             <span class="glyphicon glyphicon-plus-sign"></span> Tambah Pengantaran </a>
-                    </li>
-                    <li class="{{Request()->is('listPengantaran') ? 'active':''}}">
+                    </li> --}}
+                    <li class="{{Request()->is('listPengantaran', 'konfirmasiPengantaran', 'listPengantaran/pengantaranSudahDiproses') ? 'active':''}}">
                         <a href="/listPengantaran">
                             <span class="glyphicon glyphicon-indent-right"></span> List Pengantaran </a>
                     </li>
@@ -111,10 +111,10 @@
                         <a href="/listKonsumen">
                             <span class="glyphicon glyphicon-indent-right"></span> List Konsumen </a>
                     </li>
-                    <li class="{{Request()->is('blacklistKonsumen') ? 'active':''}}">
+                    {{-- <li class="{{Request()->is('blacklistKonsumen') ? 'active':''}}">
                         <a href="/blacklistKonsumen">
                             <span class="glyphicon glyphicon-ban-circle"></span> Konsumen Blacklist </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             <li class="sidebar-label pt15">Data Laporan</li>

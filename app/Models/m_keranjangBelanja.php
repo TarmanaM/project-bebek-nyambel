@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\DB;
 class m_keranjangBelanja extends Model
 {
     use HasFactory;
-    public function allKeranjangBelanja(){
+    public function allKeranjangBelanja($idUser){
         return DB::table('tb_keranjang')
         ->join('tb_produk', 'tb_produk.id_produk', '=', 'tb_keranjang.id_produk' )
         ->select('tb_keranjang.quantity', 'tb_produk.nama_barang', 'tb_produk.harga_produk', 'tb_produk.foto_produk', 'tb_keranjang.id_keranjang', 'tb_keranjang.no_order', 'tb_keranjang.id_produk' )
-        // ->where(); Autenthication
+        ->where('tb_keranjang.id_user', $idUser)
         ->where('tb_keranjang.status_pembelian','Baru')
         ->get();
     }
@@ -24,10 +24,11 @@ class m_keranjangBelanja extends Model
         ->delete();
     }
 
-    public function cekJumlahKeranjang()
+    public function cekJumlahKeranjang($idUser)
     {
         return DB::table('tb_keranjang')
         ->where('status_pembelian', 'Baru')
+        ->where('id_user', $idUser)
         ->count();
     }
 
@@ -37,10 +38,11 @@ class m_keranjangBelanja extends Model
         ->insert($dataCollectSave);
     }
 
-    public function prosUpdateKeranjang($updateKeranjang,$noOrder)
+    public function prosUpdateKeranjang($updateKeranjang,$noOrder,$idUser)
     {
         DB::table('tb_keranjang')
         ->where('no_order',$noOrder)
+        ->where('id_user', $idUser)
         ->update($updateKeranjang);
     }
 

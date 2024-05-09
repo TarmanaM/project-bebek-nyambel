@@ -1,7 +1,14 @@
 @extends('userThame.mainUser')
 
+@php
+    use Illuminate\Support\Facades\Crypt;
+    $local=env('DB_HOST').":".env('DB_PORT');
+    $conn=mysqli_connect($local,env('DB_USERNAME'),env('DB_PASSWORD'), env('DB_DATABASE'));
+@endphp
+
+
 @section('title')
-    Menu
+    Chekout
 @endsection
 
 @section('content')
@@ -12,65 +19,108 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="container contactpage">
-    <div class="two_third newsarticles">
+    <div class="newsarticles">
         <section class="cbp-so-section">
             <article class="cbp-so-side cbp-so-side-right">
             <div class="title">
-                <h2 class="center">Menu Bebek Nyambel</h2>
-                <h4>Pilih Menu Makanan dan Minuman Kesukaan Anda</h4>
-            </div>
-            <div class="main">
-                <div class="card-group">
+                <h3 class="center">Informasi Riwayat Pembelian Anda</h3>
+                <hr>
+                <form action="/cekPemesanan" method="GET" enctype="multipart/form-data">
+                    @csrf
+                   <div class="row">
+                        <div class="col-10">
+                            <input type="text" name="noInvoice"
+                            placeholder="Inputkan Invoice yang Mau Dicari"
+                            class="form-control"
+                            value="{{$noInvoice}}"
+                            style="width: 100%">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-info" name="tbCari">Pencarian</button>
+                        </div>
+                   </div>
+                </form>
+                <hr>
+                <table class="table table-bordered">
+                    <tr>
+                        <td style="background-color: black; color:white">No Invoice</td>
+                        <td style="background-color: black; color:white">Detail Produk</td>
+                        <td style="background-color: black; color:white">Grand Total</td>
+                        <td style="background-color: black; color:white">Info Pembelian</td>
+                        <td style="background-color: black; color:white">Tanggal Pembelian</td>
+                    </tr>
+                    @foreach ($ambilData as $fnambilData)
+                        <tr>
+                            <td>{{$fnambilData->no_invoice}}</td>
+                            <td>
+                                @foreach (explode(',', $fnambilData->nama_barang_quantity) as $barang_quantity)
+                                    {{$barang_quantity}} Pcs<br>
+                                @endforeach
+                               {{-- {{ $fnambilData->nama_barang_quantity}} --}}
+                            </td>
+                            <td>Rp. {{number_format($fnambilData->grand_total,0)}}</td>
+                            <td>
 
+                                Pesanan: {{$fnambilData->status_pengantaran}}
+                                @if (!empty ($fnambilData->alamat_pengantaran))
+                                    <hr />
+                                    {{$fnambilData->alamat_pengantaran}}
+                                @endif
+
+
+                            </td>
+                            <td>{{date('d-M-Y H:i:s', strtotime($fnambilData->tggl_pembelian))}}</td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+
+            <div class="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-md-offset-1">
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
             </article>
         </section>
     </div>
-    <aside>
-      <div class="one_third lastcolumn newssidebar">
-        <div class="inner">
-          <div class="home-welcome">
-            <h3>Selamat Datang di Bebek Nyambel</h3>
-            <h4>Buka Setiap Hari <br />
-              14.00-22.00</h4>
-             
-          </div>
-          <img src="user/images/product6.jpg" alt="img01" />
-          <div class="home-event-one">
-            <h3>Join our Mailing list</h3>
-            <div class="clearfix">
-              <div id="mc_embed_signup">
-                <form action="http://anarieldesign.us5.list-manage2.com/subscribe/post?u=91beeeb55ba321b040f8c583c&amp;id=1cead7613e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="" />
-                  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="" />
-                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
-                </form>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3>Latest Events</h3>
-            <section class="slider">
-              <div class="flexslider">
-                <ul class="slides">
-                  <li><img src="user/images/slide1.jpg" alt="" /> </li>
-                  <li><img src="user/images/slide2.jpg" alt="" /> </li>
-                </ul>
-                <ul class="flex-direction-nav">
-                  <li><a class="flex-prev" href="#">Previous</a></li>
-                  <li><a class="flex-next" href="#">Next</a></li>
-                </ul>
-              </div>
-              <!-- flexslider ends here -->
-            </section>
-            <article class="cbp-so-side cbp-so-side-right">
-              <h3>Viris fuisset insol!</h3>
-              <h4 class="date">Jan 15, 2014</h4>
-              <p>Lorem ipsum dolor sit amet, ius cibo ludus conclusionemque ad, his ad elit time cum at vide incorrupte. Autem ancillae ...</p>
-              <a class="morebutton" href="http://www.anarieldesign.com/themes/">Read more</a> </article>
-          </div>
-        </div>
-      </div>
-    </aside>
+
   </div>
+  <script type="text/javascript">
+    function myFunction(){
+        var subTotal=parseInt(document.getElementById('subTotal').value);
+        var ekspedisi=document.getElementById('pengiriman').value;
+        var fnEkspedisi=0;
+        var grandTotal=0;
+        if (ekspedisi==="") {
+            fnEkspedisi=0;
+            document.getElementById('test').hidden=true;
+            document.getElementById('test2').hidden=true;
+        }else if(ekspedisi==="Diantar"){
+            fnEkspedisi=15000;
+            document.getElementById('test').hidden=true;
+            document.getElementById('test2').hidden=true;
+        }
+        else if(ekspedisi==="Ambil Sendiri"){
+            fnEkspedisi=0;
+            document.getElementById('test').hidden=true;
+            document.getElementById('test2').hidden=true;
+        }else{
+            fnEkspedisi=0;
+            document.getElementById('test').hidden=false;
+            document.getElementById('test2').hidden=true;
+        }
+        grandTotal=fnEkspedisi+subTotal;
+        console.log(grandTotal);
+        document.getElementById('totalEkspedisi').innerHTML="Ongkos Kirim Anda Rp. " + fnEkspedisi;
+        document.getElementById('ekspedisiHidden').innerHTML="<input type='hidden' name='ongkosKirim' value='"+fnEkspedisi+"'>";
+        document.getElementById('grandTotal').innerHTML="Total Yang Dibayarkan Rp. " + grandTotal;
+        document.getElementById('totalHidden').innerHTML="<input type='hidden' name='grandtotal' value='"+grandTotal+"'>";
+        location.refresh(true);
+    }
+  </script>
 @endsection

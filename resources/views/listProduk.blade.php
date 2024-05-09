@@ -16,7 +16,7 @@
             <div class="panel panel-visible">
                 <div class="panel-heading">
                     <div class="panel-title hidden-xs">
-                        <span class="glyphicon glyphicon-tasks"></span>Search Bar Filtering</div>
+                        <span class="glyphicon glyphicon-tasks"></span>List Produk</div>
                 </div>
                 <div class="panel-body pn">
                     <table class="table table-striped table-bordered table-hover" id="datatable2" cellspacing="0" width="100%">

@@ -2,12 +2,13 @@
 
 @php
     use Illuminate\Support\Facades\Crypt;
-    $conn=mysqli_connect("localhost","root","","db_bebek");
+    $local=env('DB_HOST').":".env('DB_PORT');
+    $conn=mysqli_connect($local,env('DB_USERNAME'),env('DB_PASSWORD'), env('DB_DATABASE'));
 @endphp
 
 
 @section('title')
-    kontak
+    Chekout
 @endsection
 
 @section('content')
@@ -44,8 +45,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
                                         @endphp
                                         @foreach ($allKeranjangBelanja as  $fnallKeranjangBelanja)
                                             @php
+                                                $idUser=Auth()->user()->id;
                                                 $idProduk=$fnallKeranjangBelanja->id_produk;
-                                                $ambilData=mysqli_fetch_row(mysqli_query($conn,"Select sum(quantity) as quantity from tb_keranjang where id_produk='$idProduk' and status_pembelian='Baru'"));
+                                                $ambilData=mysqli_fetch_row(mysqli_query($conn,"Select sum(quantity) as quantity from tb_keranjang where id_produk='$idProduk' and status_pembelian='Baru' and id_user='$idUser'"));
                                                 $sumQuantity=$ambilData[0];
 
                                                 $total=$sumQuantity*$fnallKeranjangBelanja->harga_produk;
@@ -83,11 +85,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
                                 <div class="col-sm-6" >
                                         <div class="card">
                                             <div class="card-body">
-                                                Nama Member:
+                                                <b>Nama Member:</b> {{Auth()->user()->name}}
                                                 <br />
-                                                Nomor HP:
+                                                <b>Nomor HP:</b> {{Auth()->user()->phone}}
                                                 <br />
-                                                Email:
+                                                <b>Email:</b> {{Auth()->user()->email}}
                                                 <hr />
                                                 Pengiriman (Ekspedisi)<br />
                                                 <select name="pengiriman" id="pengiriman" onChange="myFunction()" class="form-control">
@@ -115,6 +117,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
                                                     <p id="totalEkspedisi"></p>
                                                     <div id="ekspedisiHidden"></div>
                                                 </font>
+
 
                                                 Alamat Lengkap <br />
                                                 <textarea name="alamatLengkap" id="" class="form-control">{{old('alamatLengkap')}}</textarea>

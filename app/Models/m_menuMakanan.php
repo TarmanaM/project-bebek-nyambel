@@ -24,38 +24,41 @@ class m_menuMakanan extends Model
         ->insert($dataCollectSave);
     }
 
-    public function allKeranjangBelanja()
+    public function allKeranjangBelanja($idUser)
     {
         return DB::table('tb_keranjang')
         ->join('tb_produk','tb_produk.id_produk','=','tb_keranjang.id_produk')
         ->select('tb_keranjang.quantity','tb_produk.nama_barang','tb_produk.harga_produk')
         ->where('status_pembelian','Baru')
-        // ->where(); AUthentication
+        ->where('id_user',$idUser)
         ->get();
     }
 
-    public function cekIdProduk($idProduk)
+    public function cekIdProduk($idProduk,$idUser)
     {
         return DB::table("tb_keranjang")
         ->where('id_produk',$idProduk)
         ->where('status_pembelian','Baru')
+        ->where('id_user',$idUser)
         ->count();
     }
 
-    public function getLatestQuantity($idProduk)
+    public function getLatestQuantity($idProduk,$idUser)
     {
         return DB::table("tb_keranjang")
         ->select('quantity')
         ->where('id_produk',$idProduk)
+        ->where('id_user',$idUser)
         ->where('status_pembelian','Baru')
         ->orderBy('id_produk','Desc')
         ->first();
     }
 
-    public function prosesUpdate($dataCollectUpdate,$idProduk)
+    public function prosesUpdate($dataCollectUpdate,$idProduk,$idUser)
     {
         DB::table('tb_keranjang')
         ->where('id_produk',$idProduk)
+        ->where('id_user',$idUser)
         ->update($dataCollectUpdate);
     }
 }

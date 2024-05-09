@@ -16,44 +16,65 @@
             <div class="panel panel-visible">
                 <div class="panel-heading">
                     <div class="panel-title hidden-xs">
-                        <span class="glyphicon glyphicon-tasks"></span>Search Bar Filtering</div>
+                        <span class="glyphicon glyphicon-tasks"></span>List Pembelian Baru</div>
                 </div>
                 <div class="panel-body pn">
+                    <a href="/listPembelian/pembelianDikonfirmasi">
+                        <button class="btn btn-default" style="margin-left: 10px; margin-top:10px; margin-bottom:10px" > <i class="fa fa-check"></i>
+                            PEMBELIAN
+                            DIKONFIRMASI
+                        </button>
+                    </a>
+                    <a href="/listPembelian/pembelianDitolak">
+                        <button class="btn btn-default" style="margin-left: 10px; margin-top:10px; margin-bottom:10px" > <i class="fa fa-ban"></i>
+                            PEMBELIAN
+                            DITOLAK
+                        </button>
+                    </a>
                     <table class="table table-striped table-bordered table-hover" id="datatable2" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Kode</th>
-                                <th>Nama Produk</th>
-                                <th>Kategori</th>
-                                <th>Harga</th>
-                                <th>Stok</th>
-                                <th>Paket</th>
-                                <th>Gambar</th>
-                                <th></th>
+                                <th>Data Pembeli</th>
+                                <th>No invoice</th>
+                                <th>Data Produk</th>
+                                <th>Pengiriman</th>
+                                <th>Pembayaran</th>
+                                <th>Konfirmasi</th>
+                                <th>Tindakan</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($ambilDataProduk as $fnambilDataProduk )
+                            @foreach ($ambilPembelian as $fnambilPembelian )
                                 <tr>
-                                    <td>{{$fnambilDataProduk->kode_barang}}</td>
-                                    <td>{{$fnambilDataProduk->nama_barang}}</td>
-                                    <td>{{$fnambilDataProduk->kategori}}</td>
-                                    <td>{{$fnambilDataProduk->harga_produk}}</td>
-                                    <td>{{$fnambilDataProduk->stok}}</td>
-                                    <td>{{$fnambilDataProduk->paket}} {{$fnambilDataProduk->satuan}}</td>
-                                    <td><img src="{{asset('img/'.$fnambilDataProduk->foto_produk)}}" style="width: 100px"></td>
-                                    <td>
-                                        <a href="/listProduk?dropId={{crypt::encryptString ($fnambilDataProduk->id_produk)}}">
-                                            <button class="btn btn-danger">  <i class="fa fa-trash"></i></button>
-                                        </a>
-
-                                        <a href="/editProduk?updateId={{crypt::encryptString($fnambilDataProduk->id_produk)}}">
-                                            <button class="btn btn-success">  <i class="fa fa-edit"></i></button>
-                                        </a>
-
+                                    <td style="vertical-align: top">{{$fnambilPembelian->name}} <br />{{$fnambilPembelian->email}} <br /> {{$fnambilPembelian->phone}}</td>
+                                    <td style="vertical-align: top">{{$fnambilPembelian->no_invoice}}</td>
+                                    <td style="vertical-align: top">
+                                        @foreach (explode(',', $fnambilPembelian->nama_barang_quantity) as $barang_quantity)
+                                            {{$barang_quantity}} Pcs<br>
+                                        @endforeach</td>
+                                    <td style="vertical-align: top">
+                                        Pesanan: {{$fnambilPembelian->status_pengantaran}}
+                                        @if (!empty ($fnambilPembelian->alamat_pengantaran))
+                                            <br />
+                                            {{$fnambilPembelian->alamat_pengantaran}}
+                                        @endif</td>
+                                    <td style="vertical-align: top">Grand Total:
+                                        Rp. {{$fnambilPembelian->grand_total}}
+                                        <br />
+                                        Metode : {{$fnambilPembelian->metode_pembayaran}}<br />
+                                        {!! $fnambilPembelian->keteranganTransfer !!} <br />
+                                        <i class="fa fa-search"></i> <a href="{{asset('img/'.$fnambilPembelian->gambar_transfer)}}">Bukti Transfer</a>
                                     </td>
+                                    <td style="vertical-align: top"> {{$fnambilPembelian->status_konfirmsi}}</td>
+                                    <td style="vertical-align: top">
+                                        <a href="/listPembelian?konfirmasi={{crypt::encryptString ($fnambilPembelian->id_pembayaran)}}" >
+                                            <button class="btn btn-info">Konfirmasi</button>
+                                        </a>
+                                    </td>
+
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

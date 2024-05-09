@@ -5,7 +5,7 @@
 @endphp
 
 @section('title')
-    List Pengantaran
+    List Pengantaran Sudah Diproses
 @endsection
 
 @section('content')
@@ -16,12 +16,13 @@
             <div class="panel panel-visible">
                 <div class="panel-heading">
                     <div class="panel-title hidden-xs">
-                        <span class="glyphicon glyphicon-tasks"></span>List Pengantaran Baru</div>
+                        <span class="glyphicon glyphicon-tasks"></span>List Pengantaran Sudah Diproses
+                    </div>
                 </div>
                 <div class="panel-body pn">
-                    <a href="/listPengantaran/pengantaranSudahDiproses">
+                    <a href="/listPengantaran">
                         <button class="btn btn-default" style="margin-left: 10px; margin-top:10px; margin-bottom:10px" > <i class="fa fa-check"></i>
-                            PENGANTARAN SUDAH DIPROSES
+                            LIST PENGANTARAN BARU
                         </button>
                     </a>
                     <table class="table table-striped table-bordered table-hover" id="datatable2" cellspacing="0" width="100%">
@@ -33,12 +34,10 @@
                                 <th>Pengiriman</th>
                                 <th>Pembayaran</th>
                                 <th>Info Driver</th>
-                                <th>Tindakan</th>
-
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($ambilPengantaran as $fnambilPengantaran )
+                            @foreach ($ambilPengantaranSudahDiproses as $fnambilPengantaran )
                                 <tr>
                                     <td style="vertical-align: top">{{$fnambilPengantaran->name}} <br />{{$fnambilPengantaran->email}} <br /> {{$fnambilPengantaran->phone}}</td>
                                     <td style="vertical-align: top">{{$fnambilPengantaran->no_invoice}}</td>
@@ -65,12 +64,12 @@
                                     <td style="vertical-align: top">
                                         @if (empty($fnambilPengantaran->nama_driver) && empty($fnambilPengantaran->no_hp_driver))
                                             Driver belum ditentukan
+                                        @else
+                                            <b>Nama Driver</b> <br />
+                                            {{$fnambilPengantaran->nama_driver}} <br/> <br />
+                                            <b>Nomor Hp Driver</b> <br />
+                                            {{$fnambilPengantaran->no_hp_driver}}
                                         @endif
-                                    </td>
-                                    <td style="vertical-align: top">
-                                        <a href="/listPengantaran?konfirmasi={{crypt::encryptString ($fnambilPengantaran->id_pengantaran)}}" >
-                                            <button class="btn btn-info">Konfirmasi</button>
-                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

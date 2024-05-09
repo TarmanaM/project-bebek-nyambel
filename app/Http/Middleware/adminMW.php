@@ -16,6 +16,7 @@ class adminMW
      */
     public function handle(Request $request, Closure $next)
     {
+
         if ($request ->user()&& (auth()->user()->level=="Admin")) {
             return $next($request);
         }
