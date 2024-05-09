@@ -1,11 +1,18 @@
 
 <div class="logo-container">
+	<table border=0>
+		<tr>
   <img src="Documentation Project Manage/images/Gunadarma Logo - Copy.jpg" width=100px alt="Logo Gunadarma">
+	</tr>
+	<tr>X</tr>
+	<tr><img src="Documentation Project Manage/images/logoBebekNyambel.png"  width=100px alt="Logo 2"></tr>
+	</table>
+
   <div class="overlay"></div>
-  <img src="Documentation Project Manage/images/logoBebekNyambel.png"  width=100px alt="Logo 2">
+  
 </div>
 
-# Nama Proyek
+# Bebek Nyambel MSME Web Project
 
 Selamat datang di tugas Projek kami 
 
