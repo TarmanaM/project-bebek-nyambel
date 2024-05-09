@@ -4,7 +4,6 @@
 		<tr>
   <img src="Documentation Project Manage/images/Gunadarma Logo - Copy.jpg" width=100px alt="Logo Gunadarma">
 	</tr>
-
 	<tr><img src="Documentation Project Manage/images/logoBebekNyambel.png"  width=100px alt="Logo 2"></tr>
 	</table>
 
