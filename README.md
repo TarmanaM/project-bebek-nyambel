@@ -36,7 +36,7 @@ Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam p
       <th></th>
       <th>Nama</th>
       <th>Posisi</th>
-      <th>Email</th>
+      <th>Contact</th>
     </tr>
   </thead>
   <tbody>
@@ -50,19 +50,19 @@ Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam p
       <td><img width=40px src="Documentation Project Manage/images/image (4).png" alt="Foto Profil"></td>
       <td>Muhammad Dhiyaul haq</td>
       <td>Head Programmer</td>
-      <td></td>
+      <td><a href="https://github.com/ulhaq18"></td>
     </tr>
     <tr>
       <td><img width=40px src="Documentation Project Manage/images/image (3).png" alt="Foto Profil"></td>
       <td>Rafie Ulwan Zahrani </td>
       <td>Front-end Dev</td>
-      <td></td>
+      <td><a href="https://github.com/rafiulwan"></td>
     </tr>
     <tr>
       <td><img width=40px src="Documentation Project Manage/images/image (1).png" alt="Foto Profil"></td>
       <td>Anugerah Cahaya Utama</td>
       <td>Back-end Dev</td>
-      <td></td>
+      <td><a href="https://github.com/cahayoyo"></td>
     </tr>
     <tr>
       <td><img width=40px src="Documentation Project Manage/images/image (2).png" alt="Foto Profil"></td>
