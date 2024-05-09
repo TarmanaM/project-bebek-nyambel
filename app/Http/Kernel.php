@@ -11,7 +11,11 @@ class Kernel extends HttpKernel
      *
      * These middleware are run during every request to your application.
      *
+<<<<<<< HEAD
      * @var array<int, class-string|string>
+=======
+     * @var array
+>>>>>>> master
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
@@ -26,7 +30,11 @@ class Kernel extends HttpKernel
     /**
      * The application's route middleware groups.
      *
+<<<<<<< HEAD
      * @var array<string, array<int, class-string|string>>
+=======
+     * @var array
+>>>>>>> master
      */
     protected $middlewareGroups = [
         'web' => [
@@ -40,7 +48,10 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+<<<<<<< HEAD
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+=======
+>>>>>>> master
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -51,7 +62,11 @@ class Kernel extends HttpKernel
      *
      * These middleware may be assigned to groups or used individually.
      *
+<<<<<<< HEAD
      * @var array<string, class-string|string>
+=======
+     * @var array
+>>>>>>> master
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
@@ -63,5 +78,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+<<<<<<< HEAD
+=======
+        'admin'=> \App\Http\Middleware\adminMW::class,
+        'pembeli'=> \App\Http\Middleware\pembeliMW::class,
+>>>>>>> master
     ];
 }

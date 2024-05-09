@@ -1,0 +1,247 @@
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+/*overflow-x: hidden;*/}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* #Basic Styles
+================================================== */
+body {
+	font: 14px Arial, Helvetica, sans-serif;
+	line-height: 20px;
+	color: #151820;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
+	overflow-x: hidden;
+}
+html {
+	background:#fff;
+/*overflow-x: hidden;*/ }
+/* #Typography
+================================================== */
+h1, h2, h3, h4, h5, h6 {
+	letter-spacing:0.04em;
+	font-family: 'Ubuntu', sans-serif;
+	text-transform:uppercase;
+	color:#2e0908;
+	text-shadow: 0px 1px 1px white;
+	-webkit-text-stroke: 1px transparent;
+	webkit-font-smoothing: antialiased;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	font-weight: inherit;
+	color:#5d2331;
+}
+h1 {
+	font-size: 2.6em;
+	line-height:2em;
+	font-weight:bold;
+}
+h2 {
+	font-size: 2.6em;
+	margin-bottom:10px;
+	line-height:1.8em;
+	font-weight:bold;
+	letter-spacing:0.3em;
+}
+h3 {
+	font-size: 1.8em;
+	margin-bottom: 10px;
+	line-height:1.8em;
+}
+h4 {
+	font-size: 1.4em;
+	line-height:1.4em;
+	margin-bottom: 10px;
+}
+h5 {
+	font-size: 1.3em;
+	line-height:1.0em;
+	margin-bottom: 10px;
+}
+h6 {
+	font-size: 1.2em;
+	text-transform:capitalize;
+}
+.subheader {
+	color: #424b5f;
+}
+p {
+	color: #050101;
+	line-height:1.6em;
+	font-size:1.5em;
+	margin: 0 0 15px 0;
+	font-family: 'Lora', serif;
+}
+p.special {
+	color: #5d2331;
+	font-weight:bold;
+	line-height:1.6em;
+	font-size:1.5em;
+	margin: 0 0 15px 0;
+	font-family: 'Lora', serif;
+}
+p.last {
+	margin-bottom:0;
+}
+p img {
+	margin: 0;
+}
+img.left {
+	float: left;
+	margin-bottom: 20px;
+	margin-right: 20px;
+}
+img.right {
+	float: right;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+em {
+	font-style: italic;
+}
+strong {
+	font-weight: bold;
+}
+small {
+	font-size: 80%;
+}
+hr {
+	border: solid #efefef;
+	border-width: 1px 0 0;
+	clear: both;
+	margin: 10px 0 30px;
+	height: 0;
+}
+/* Text Selection */
+::selection {
+background: #fff;
+color: #151820; /* Safari */
+}
+::-moz-selection {
+background: #fff;
+color: #151820; /* Firefox */
+}
+/* #Links
+================================================== */
+a, a:visited {
+	color:#5d2331;
+	text-decoration: none;
+	outline: 0;
+}
+p a, p a:visited {
+	line-height: inherit;
+}
+/* #Images
+================================================== */
+img.scale-with-grid {
+	max-width: 100%;
+	height: auto;
+}
+/* #Forms
+================================================== */
+/* General Forms */
+form {
+	margin-bottom: 0px;
+}
+fieldset {
+	margin-bottom: 20px;
+}
+label, legend {
+	display: block;
+	font-size: 14px;
+}
+input[type="checkbox"] {
+	display: inline;
+}
+label span, legend span {
+	font-weight: normal;
+	font-size: 13px;
+}
+input[type="text"], input[type="password"], input[type="email"], textarea, select {
+	padding: 10px 10px;
+	outline: none;
+	overflow: hidden;
+	font: 14px;
+	margin: 0;
+	width: 198px;
+	max-width: 100%;
+	display: block;
+	margin-bottom: 10px;
+}
+select {
+	padding: 0;
+}
+textarea {
+	min-height: 100px;
+}
+select {
+	width: 220px;
+}
+/* Header Responsive Menu Form Style */
+.header select {
+	-webkit-appearance: none;
+	padding: 5px;
+	outline: none;
+	border:1px solid #000;
+	overflow: hidden;
+	font: 1.1em 'Ubuntu', sans-serif;
+	max-width: 100%;
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	background:#5d2331 url(../images/navselect.gif) no-repeat right center;
+	color: #fff;
+	margin-bottom:5px;
+}
+.header option {
+	outline: none;
+	border: 0;
+	overflow: hidden;
+	font: 1.1em 'Ubuntu', sans-serif;
+	max-width: 100%;
+	display: block;
+	padding-left: 15px;
+}
+/* #Misc
+================================================== */
+.remove-bottom {
+	margin-bottom: 0 !important;
+}
+.half-bottom {
+	margin-bottom: 10px !important;
+}
+.add-bottom {
+	margin-bottom: 20px !important;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}

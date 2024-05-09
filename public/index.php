@@ -16,8 +16,13 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
+<<<<<<< HEAD
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
+=======
+if (file_exists(__DIR__.'/../storage/framework/maintenance.php')) {
+    require __DIR__.'/../storage/framework/maintenance.php';
+>>>>>>> master
 }
 
 /*
@@ -48,8 +53,14 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
+<<<<<<< HEAD
 $response = $kernel->handle(
     $request = Request::capture()
 )->send();
+=======
+$response = tap($kernel->handle(
+    $request = Request::capture()
+))->send();
+>>>>>>> master
 
 $kernel->terminate($request, $response);
