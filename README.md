@@ -1,68 +1,68 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div class="logo-container">
+  <img src="Documentation Project Manage/images/Gunadarma Logo - Copy.jpg" alt="Logo Gunadarma">
+  <div class="overlay"></div>
+  <img src="Documentation Project Manage/images/logoBebekNyambel.png" alt="Logo 2">
+</div>
 
-## About Laravel
+# Nama Proyek
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Selamat datang di tugas Projek kami 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Deskripsi
+Proyek ini merupakan hasil dari Mahasiswa Universitas Gunadarma dalam mengembangkan UMKM Bebek Nyambel. Proyek ini mengembangkan lingkup promosi UMKM dengan membuat sebuah website e-commerce. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur Utama
 
-## Learning Laravel
+- Pemesanan dengan keranjang dan upload transaksi pembayaran
+- Managemen Produk Menu
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Kontributor
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam proyek ini:
 
-## Laravel Sponsors
+## Kontributor
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<table>
+  <thead>
+    <tr>
+      <th>Foto Profil</th>
+      <th>Nama</th>
+      <th>Posisi</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Isa Tarmana Mustopa</td>
+      <td>Project Manager</td>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
+      <td>isatarmanamustopa54@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Muhammad Dhiyaul haq</td>
+      <td>Head Programmer</td>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Rafie Ulwan Zahrani </td>
+      <td>Front-end Dev</td>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Anugerah Cahaya Utama</td>
+      <td>Back-end Dev</td>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Jesyca Michel</td>
+      <td>Documenter & System Analyst</td>
+      <td><img src="link_ke_foto_profil" alt="Foto Profil"></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-<<<<<<< HEAD
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-=======
-- **[CMS Max](https://www.cmsmax.com/)**
->>>>>>> master
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
