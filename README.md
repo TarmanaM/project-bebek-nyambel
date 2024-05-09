@@ -27,9 +27,6 @@ Proyek ini merupakan hasil dari Mahasiswa Universitas Gunadarma dalam mengembang
 
 Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam proyek ini:
 
-## Kontributor
-
-
 <table>
   <thead>
     <tr>
@@ -73,3 +70,14 @@ Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam p
   </tbody>
 </table>
 
+## Project Document
+Pada Projek ini kami menggunakan software Microsift Projek dalam membuat dokumen manajemen agar pengerjaan projek dapat di track sesuai dengan rencana. Kami merencanakan perkiraan projek selama 75 hari dan proyek ini kami beri harga sebesar 15jt. kami menggunakan Diagram Pert untuk menunjukan langkah-langkah atau tahapan dalam pengerjaan projek. Kami menggunakan juga Work Breakdown Structure(WBS) untuk menampilkan fitur-fitur dan tahapan pengerjaan secara terstruktur.
+
+- Project Manage Doc : <a href="https://github.com/TarmanaM/project-bebek-nyambel/blob/main/Documentation%20Project%20Manage/BebekNyambelProject.mpp"> Here </a>
+- Project Work Breakdown Structure : <a href="https://github.com/TarmanaM/project-bebek-nyambel/blob/main/Documentation%20Project%20Manage/Diagram%20Pert.pptx"> Here </a>
+- Project Pert Diagram : <a href="https://github.com/TarmanaM/project-bebek-nyambel/blob/main/Documentation%20Project%20Manage/GAN%20%2B%20Biaya.xlsx"> Here </a>
+
+## Penutup
+Repository ini dibuat untuk menjadi portofolio projek kami dalam pembuatan dan pengerjaan projek website secara tim. Repository ini juga bisa menjadi referensi dalam tugas pengerjaan proyek untuk para pembaca.
+
+Terimakasih
