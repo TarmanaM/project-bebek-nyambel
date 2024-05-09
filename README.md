@@ -44,25 +44,25 @@ Terima kasih kepada para kontributor atau Team yang telah berpartisipasi dalam p
       <td><img width=40px src="Documentation Project Manage/images/image (5).png" alt="Foto Profil"></td>
       <td>Isa Tarmana Mustopa</td>
       <td>Project Manager</td>
-      <td>isatarmanamustopa54@gmail.com</td>
+      <td><a href="mailto:isatarmanamustopa54@gmail.com">mail : isatarmanamustopa54@gmail</a></td>
     </tr>
     <tr>
       <td><img width=40px src="Documentation Project Manage/images/image (4).png" alt="Foto Profil"></td>
       <td>Muhammad Dhiyaul haq</td>
       <td>Head Programmer</td>
-      <td><a href="https://github.com/ulhaq18"></td>
+      <td><a href="https://github.com/ulhaq18">Github : ulhaq18</a></td>
     </tr>
     <tr>
       <td><img width=40px src="Documentation Project Manage/images/image (3).png" alt="Foto Profil"></td>
       <td>Rafie Ulwan Zahrani </td>
       <td>Front-end Dev</td>
-      <td><a href="https://github.com/rafiulwan"></td>
+      <td><a href="https://github.com/rafiulwan">Github : rafiulwan</a></td>
     </tr>
     <tr>
       <td><img width=40px src="Documentation Project Manage/images/image (1).png" alt="Foto Profil"></td>
       <td>Anugerah Cahaya Utama</td>
       <td>Back-end Dev</td>
-      <td><a href="https://github.com/cahayoyo"></td>
+      <td><a href="https://github.com/cahayoyo">Github : cahyoyo</a></td>
     </tr>
     <tr>
       <td><img width=40px src="Documentation Project Manage/images/image (2).png" alt="Foto Profil"></td>
